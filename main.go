@@ -5,8 +5,8 @@ import "fmt"
 func main() {
 	goDefer()
 	goPanic()
+	f()
 }
-
 func goDefer() {
 	fmt.Println("Start Function")
 	err := fmt.Errorf("I have failed you!")

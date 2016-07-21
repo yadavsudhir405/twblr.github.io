@@ -2,33 +2,28 @@ package main
 
 import "fmt"
 
-type Resource struct {
-	name   string
-	closed bool
+func f() {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println("Recovered in f", r)
+
+		}
+
+	}()
+	fmt.Println("Calling g.")
+	g(0)
+	fmt.Println("Returned normally from g.")
+
 }
 
-func Open(name string) (*Resource, error) {
-	return &Resource{name: name}, nil
-}
+func g(i int) {
+	if i > 3 {
+		fmt.Println("Panicking!")
+		panic(fmt.Sprintf("%v", i))
 
-func PanicOpen(name string) (*Resource, error) {
-	panic("failed to open resource")
-}
-
-func (res *Resource) Close() error {
-	fmt.Println("Closing resource %s", res.name)
-	res.closed = true
-	return nil
-}
-
-func allocateResource() *Resource {
-	res, err := Open("Hello")
-	if err != nil {
-		return nil
 	}
-	return res
-}
+	defer fmt.Println("Defer in g", i)
+	fmt.Println("Printing in g", i)
+	g(i + 1)
 
-func handlePanicOpen() error {
-	return nil
 }
