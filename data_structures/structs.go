@@ -4,7 +4,7 @@ package data_structures
 
 type Node struct{}
 
-func Add(elem int) {
+func (n &Node)Add(elem int) {
 	return
 }
 
