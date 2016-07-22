@@ -6,7 +6,7 @@ func fizzBuzz(i int32) string {
 		result="2"
 	}else if i%3==0{
 		result="Fizz"
-	}else if i%5==0{
+	}else if i%5 ==0 && i<15{
 		result="Buzz"
 	}else if i%15==0{
 		result="FizzBuzz"
