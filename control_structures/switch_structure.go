@@ -6,8 +6,8 @@ const multiply string = "*"
 const divide = "/"
 
 func calculate(op string, arg1, arg2 float32) float32 {
-	var result float
-	switch op {
+	var result float32 = 0.0
+	switch {
 		case op==add:
 			result=arg1+arg2
 		case op==subtract:
