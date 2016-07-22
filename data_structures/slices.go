@@ -30,13 +30,25 @@ func concatenate(dest []string, newValues ...string) []string {
 }
 
 func equals(list1 []string, list2 []string) bool {
-	return true
+	lengthOfFirstList:=len(list1)
+	lengthOfSecondList:=len(list2)
+	isListEqual:=true
+	if lengthOfFirstList!=lengthOfSecondList {
+		isListEqual=false
+	}else{
+		for index,value := range list1{
+			if value != list2[index]{
+				isListEqual=false
+			}
+		}
+	}
+	return isListEqual
 }
 
 func partialReverse(src []int, from, to int) []int {
-	partialList:=[]int{}
+	partialReversedList:=[]int{}
 	for i:=6;i>=4;i--{
-		partialList=append(partialList,src[i])
+		partialReversedList=append(partialReversedList,src[i])
 	}
-	return partialList
+	return partialReversedList
 }
