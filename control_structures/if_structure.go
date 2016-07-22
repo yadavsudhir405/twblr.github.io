@@ -4,9 +4,9 @@ func fizzBuzz(i int32) string {
 	result:="Invalied"
 	if i%2==0{
 		result="2"
-	}else if i%3==0{
+	}else if i==3{
 		result="Fizz"
-	}else if i%5 ==0 && i<15{
+	}else if i==5{
 		result="Buzz"
 	}else if i%15==0{
 		result="FizzBuzz"
