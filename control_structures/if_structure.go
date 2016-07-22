@@ -8,9 +8,9 @@ func fizzBuzz(i int32) string {
 		result="Fizz"
 	}else if i==5{
 		result="Buzz"
-	}else if i%15==0{
+	}else if i==15{
 		result="FizzBuzz"
-	}else if i%999==0{
+	}else if i==999{
 		result="Fizz"
 	}else{
 		result="Invalid"
