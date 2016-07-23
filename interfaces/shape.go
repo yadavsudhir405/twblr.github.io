@@ -1,5 +1,7 @@
 package interfaces
 
+type Hybrid []Shape
+
 type Shape interface {
 	Area() int
 }
@@ -16,10 +18,22 @@ type Rectangle struct{
 func (r *Rectangle) Area() int{
 	return r.length*r.breadth
 }
-type Hybrid struct{
-	square Square
-	rectangle Rectangle
+
+func (h Hybrid) Area() int{
+	area:=0
+	for _,shape := range h{
+		area+=shape.Area()
+	}
+	return area
 }
-func (h *Hybrid) Area() int{
-	return h.square.Area() +h.rectangle.Area()
+
+type Hybrids struct{
+	shapes []Shape
+}
+func (h *Hybrids) Area()int{
+	area:=0
+	for _,shape := range h.shapes{
+		area+=shape.Area()
+	}
+	return area
 }
